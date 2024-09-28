@@ -1,0 +1,21 @@
+#Rofikah Zummah
+#21106010008
+#Tugas 2 Kapita Selekta Statistika 
+
+setwd("C:/Users/hp/Downloads")
+getwd()
+
+library(dplyr)
+library(lubridate)
+
+nyse = read.csv("C:/Users/hp/Downloads/data emas.csv")
+nyse
+head(nyse)
+
+nyseBaru1 <- nyse %>%
+  mutate(Date = dmy(Tanggal))
+filtered_data <- nyseBaru1 %>%  
+  filter(year(Date) == 2020, 
+         month(Date) %in% c(1:3))
+
+head(filtered_data)
